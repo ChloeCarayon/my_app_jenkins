@@ -1,6 +1,10 @@
 pipeline {
     agent any
     tools {nodejs "NodeConfig"}
+
+    agent { dockerfile true }
+
+
     stages {
 //            stage('Cloning Git'){
 //                 steps {
@@ -16,6 +20,13 @@ pipeline {
 			sh "echo test"  
               }
             }
+
+        stage('Test') {
+            steps {
+                sh 'node --version'
+                sh 'svn --version'
+            }
+        }
         
     }
 }
