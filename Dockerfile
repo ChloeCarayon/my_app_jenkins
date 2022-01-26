@@ -10,6 +10,8 @@ RUN npm install
 
 COPY . ./
 
-EXPOSE 3000
+EXPOSE 3000:3005
+
+ENV NODE_ENV dev
 
 CMD ["npm", "start"] 
