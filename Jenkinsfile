@@ -6,7 +6,7 @@ node {
       sh 'ls'
     }
     stage('Build Docker test'){
-     sh 'docker build -t app-jenkins -f Dockerfile --no-cache .'
+     sh 'docker build -t app-jenkins -f Dockerfile.test --no-cache .'
     }
     stage('Docker test'){
       sh 'docker run --rm app-jenkins'
