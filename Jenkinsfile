@@ -6,7 +6,6 @@ pipeline {
         sh 'git --version'
         sh 'docker -v'
         sh 'ls'
-        sh "printenv"
       }
     }
     stage('Build Docker test'){
