@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './totoro.gif';
 import './App.css';
 
 function App() {
