@@ -1,33 +1,15 @@
-pipeline {
-    agent any
-    tools {nodejs "NodeConfig"}
+node {
 
-    agent { dockerfile true }
+    def app
+    stage('Build image') {
 
+        app = docker.build("my-app-jenkins")
+    }
+    
+    stage('Test image') {
 
-    stages {
-//            stage('Cloning Git'){
-//                 steps {
-//                    git([url:'https://github.com/KHEfreiIntervenant/it_for_managers_backend.git', branch: 'main'])
-//                }
-//               
-//
-//            }
-            stage('Npm Build'){
-                steps {
-//                    sh "npm install"
-//                    sh "npm start"
-			sh "echo test"  
-              }
-            }
-
-        stage('Test') {
-            steps {
-                sh 'node --version'
-                sh 'svn --version'
-            }
+        app.inside {
+            sh 'echo "Tests passed"'
         }
-        
     }
 }
-
