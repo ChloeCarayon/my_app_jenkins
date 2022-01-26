@@ -13,6 +13,7 @@ pipeline {
       steps {
         sh 'docker build -t app-jenkins -f Dockerfile --no-cache .'
       }
+      }
     stage('Docker test'){
       steps {
         sh 'docker run --rm app-jenkins'
