@@ -1,3 +1,22 @@
+Chloe CARAYON
+--------------
+
+# Jenkins pipeline
+
+One can run Jenkins job following the configurations presented [here](https://github.com/ChloeCarayon/my_app_jenkins/tree/master/screenshot)
+
+Once the docker image has been created
+- Run 
+``` 
+docker run -d -it -p 3000:3000 app-jenkins
+``` 
+
+Wait few minutes, one can look at it at:
+``` 
+http://localhost:3000/
+``` 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
