@@ -1,12 +1,14 @@
-node {
-  try {
+pipeline {
+  agent any
+  stages {
     stage('Environment') {
       sh 'git --version'
       sh 'docker -v'
       sh 'ls'
+      sh "printenv"
     }
     stage('Build Docker test'){
-     sh 'docker build -t app-jenkins -f Dockerfile.test --no-cache .'
+     sh 'docker build -t app-jenkins -f Dockerfile --no-cache .'
     }
     stage('Docker test'){
       sh 'docker run --rm app-jenkins'
@@ -15,12 +17,7 @@ node {
       sh 'docker rmi app-jenkins'
     }
     stage('Deploy'){
-      if(env.BRANCH_NAME == 'master'){
-        echo 'Here must deploy'
-      }
+      echo 'Here must deploy'
     }
-  }
-  catch (err) {
-    throw err
   }
 }
