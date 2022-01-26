@@ -3,9 +3,10 @@ node {
     stage('Environment') {
       sh 'git --version'
       sh 'docker -v'
+      sh 'ls'
     }
     stage('Build Docker test'){
-     sh 'docker build -t app-jenkins .'
+     sh 'docker build -t app-jenkins -f Dockerfile --no-cache .'
     }
     stage('Docker test'){
       sh 'docker run --rm app-jenkins'
